@@ -1,0 +1,36 @@
+======================================================================
+
+                    <<abstract>>
+                    +---------------------------+
+                    |         Politico          |
+                    +---------------------------+
+                    | - nome: string            |
+                    | - partido: string         |
+                    | - esfera: Esfera          |
+                    | - poder: Poder            |
+                    | - nomeLocalTrabalho       |
+                    | - enderecoLocalTrabalho   |
+                    | - remuneracao: number     |
+                    | - projetos: string[]      |
+                    +---------------------------+
+                    | + exercerMandato(): void  |  <<abstract>>
+                    | + listarAcoes(): string[] |  <<abstract>>
+                    | + cadastroResumo(): string|
+                    | + adicionarProjeto()      |
+                    +-------------+-------------+
+                                  |
+          +-----------+-----------+-----------+-----------+
+          |           |           |           |           |
+          v           v           v           v           v
+   Presidente   Governador  Dep.Estadual Dep.Federal  Senador
+   esfera=Fed   esfera=Est  esfera=Est   esfera=Fed   esfera=Fed
+   poder=Exec   poder=Exec  poder=Leg    poder=Leg    poder=Leg
+   ministros    secretarios comissões    bancada      estado
+                estado      estado                    anoEleito
+
+Os 4 princípios
+---------------
+ABSTRAÇÃO      Politico é classe abstrata. Não se instancia "político genérico".
+ENCAPSULAMENTO Atributos privados (_nome, etc.) só acessados por get/set.
+HERANÇA        As 5 categorias herdam de Politico e reaproveitam o cadastro.
+POLIMORFISMO   exercerMandato() e listarAcoes() mudam conforme o cargo real.
